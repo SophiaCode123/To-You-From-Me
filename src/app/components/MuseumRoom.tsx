@@ -23,131 +23,165 @@ interface CosmicObject {
 
 const cosmicObjects: CosmicObject[] = [
   {
-    id: "star-1",
-    name: "Bright Star",
-    icon: <Star className="w-12 h-12" />,
-    position: { x: "15%", y: "20%" },
+    id: "comet-yusra-mardini",
+    name: "Rescue Comet",
+    icon: <Zap className="w-10 h-10" />,
+    position: { x: "18%", y: "28%" },
+    size: "w-10 h-10",
+    color: "#88a5e0",
+    label: "The Rescue Comet",
+    story: {
+      title: "The Rescue Comet",
+      person: "Yusra Mardini",
+      memory: `I am Yusra Mardini.
+
+I was born and raised in Daraya, a suburb of Damascus in Syria, where I lived with my sister Sara, my younger sister Shehad, and my parents, Ezzat and Mervat. My father was a swimming coach, and through him my sister Sara and I began training in swimming from a young age. I competed for Syria in international competitions and took part in events in countries such as Dubai and Turkey.
+
+When the Syrian civil war began in March 2011, life in Daraya gradually became more difficult. Even as demonstrations and conflict increased, I continued training and competing. Over time, the situation worsened. There was heavy fighting and bombing in our area, and our home was eventually destroyed. My father was detained and injured during the conflict. At one point, an unexploded bomb landed in the pool where I trained.
+
+By 2015, my family decided that Sara and I would leave Syria to try to reach Europe. We travelled first to Istanbul in Turkey and then arranged passage to Greece. We joined other refugees attempting to cross the Mediterranean Sea in a small rubber boat. The boat was overcrowded, carrying far more people than it was designed for, and it began its journey from the Turkish coast toward Greece.
+
+Halfway across the Aegean Sea, the boat's motor stopped working. Water began entering the boat, and the situation became unsafe. At that point, Sara and I entered the water. We swam alongside the boat while helping to keep it moving toward land. We stayed in the sea for several hours until the boat reached the Greek island of Lesbos. All passengers survived the crossing.
+
+After arriving in Greece, we continued our journey through several countries. We travelled by land through Europe, sometimes walking and sometimes using trains, until we reached Germany. We settled in Berlin.
+
+In Berlin, I contacted a local swimming club near the refugee accommodation where I was staying. The coach, Sven Spannenkrebs, allowed me to train again. I resumed swimming at Wasserfreunde Spandau 04. After returning to training, I was selected for the first Refugee Olympic Team.
+
+In 2016, I competed at the Rio Olympics as part of that team. I participated in the swimming events and competed in the 100-metre butterfly. I continued my athletic career and later also competed at the Tokyo Olympics.
+
+Following the Olympics, I was appointed a Goodwill Ambassador for the United Nations High Commissioner for Refugees (UNHCR). I began speaking publicly about refugee experiences and meeting displaced people in different countries. I also worked with a management team and agreed to publish a memoir titled Outterfly, which was released in 2018.
+
+Over time, I continued my involvement in both sport and advocacy. I built a public presence that included sharing my training, humanitarian work, and projects supporting refugees. I also established the Yusra Mardini Foundation, which focuses on providing access to swimming lessons and support for refugees. The foundation has worked on programs in locations including France and Lesbos, and has partnered with organizations to support refugee athletes and resettlement opportunities.
+
+I have also visited refugee camps in different countries, including Jordan and Kenya, to meet displaced people and athletes. Through my work, I have supported initiatives aimed at improving access to sport and basic resources.
+
+My experiences in Syria, the journey to Europe, and my career in swimming have continued to be part of my public work and advocacy.`,
+      emotion: "A life moving like a comet through danger: survival becoming motion, motion becoming advocacy.",
+      imagePrompt: "A bright comet crossing a dark ocean-like starfield, silver-blue trail, distant island lights, resilient and hopeful atmosphere, cinematic space photography"
+    }
+  },
+  {
+    id: "constellation-janae-brissett",
+    name: "First-Gen Constellation",
+    icon: <Stars className="w-12 h-12" />,
+    position: { x: "72%", y: "34%" },
     size: "w-12 h-12",
     color: "#c8ddf5",
-    label: "The Guiding Star",
+    label: "The First-Gen Constellation",
     story: {
-      title: "The Guiding Star",
-      person: "Elena, 72",
-      memory: "My grandmother and I used to watch the stars from her porch every summer night. She'd point to the North Star and say, 'No matter how lost you feel, there's always something constant.' After she died, I couldn't look at the stars for years. Last week, my granddaughter asked me to teach her the constellations. I pointed to the North Star first.",
-      emotion: "The cyclical nature of grief becoming guidance, loss transforming into legacy.",
-      imagePrompt: "A bright star in deep space surrounded by soft nebula clouds, cosmic dust particles, ethereal glow, dreamy and nostalgic atmosphere, space photography with vintage film grain"
+      title: "The First-Gen Constellation",
+      person: "Janae Brissett",
+      memory: `My name is Janae Brissett, and I was born in Montego Bay, Jamaica. Neither of my parents graduated from high school; however, they built a very successful life for themselves, and a good life for their children, full of warmth and opportunity. The idea of being "first-generation" didn't exist to me; my world was already thriving.
+
+That comfortable perspective vanished the day I migrated to Mississippi. Suddenly, my parents' lack of a diploma felt like a huge sign on my forehead. The instant I started meeting peers, the truth became too heavy to carry. When asked about my parents' schooling, I would immediately offer a protective lie. I'd tell them, "Mom went to college, and my dad went to trade school."
+
+Why would I lie when they created such a good life for me? I guess if I'm being honest, I was just ashamed now that I was in a country that focused heavily on social capital. I guess it was instinct to try to blend in with people in a state where, at the time, traveling was so limited for them that their idea of Jamaica was Bob Marley and the movie Shottas.
+
+Looking back, I am disappointed in my answers.
+
+This identity crisis peaked during the college application process, especially with the form that will haunt every first-gen student forever: FAFSA. I went through this with two extremely wary parents who viewed the process as a potential government raid. They looked at that financial aid form like the university was asking for their bank vault combinations.
+
+My mother's skepticism about handing over their Social Security number was palpable, as if they were secretly hiding the fortunes of the Crown Jewels.
+
+"Why the school need all ah dis information, Janae? Dem think we Bill Gates or something?"
+
+The joke was funny, but the reality was isolating. I had no guidance, only high-alert suspicion, constantly, about everything.
+
+After I entered college, that's when the heavy burden of cultural approval and academic performance took hold. I wasn't just working toward my success; I was fighting for generational validation. I felt like I was wearing a target for my lineage, and the pressure was relentless. Nothing less than a 95 was acceptable, because anything lower was not just a poor grade, but a disappointment for someone getting schooling in "farrin."
+
+Who do you call when you're supposed to be proofreading a thesis, and you're the first person in your entire family even to know what a thesis is? It was a lonely road where expectations were impossibly high and practical support was nonexistent. I was breaking the cycle, but I had to do it silently and perfectly.
+
+Today, I stand as the door-opener. I am in the final stages of completing my doctorate and will be the first in my entire family to do so. I've become the accidental consultant, helping other family members through the same systems that baffled me.
+
+I've also learned to give grace when I hear the classic Jamaican chorus: "Yuh still a write paper?" or "Yo nuh done wid school yet, my gosh!" They simply can't conceptualize a journey they've never been on. I have to be emotionally aware that my path is incomprehensible to them.
+
+Being first-gen is an intense, hilarious, and defining privilege. We are the cycle-breakers, the new generation makers, and we use the maps we bled to create to guide everyone who comes next.`,
+      emotion: "The pattern of becoming first: one bright point learning to draw a map for everyone after.",
+      imagePrompt: "A constellation shaped like an open doorway and map lines, stars connected over the Caribbean and American South, luminous, intimate, hopeful, deep space illustration"
     }
   },
   {
-    id: "nebula-1",
-    name: "Pink Nebula",
-    icon: <Sparkles className="w-16 h-16" />,
-    position: { x: "70%", y: "30%" },
-    size: "w-16 h-16",
-    color: "#4d4177",
-    label: "The Dream Cloud",
+    id: "moon-iby-knill",
+    name: "Witness Moon",
+    icon: <Moon className="w-12 h-12" />,
+    position: { x: "40%", y: "58%" },
+    size: "w-12 h-12",
+    color: "#c8ddf5",
+    label: "The Witness Moon",
     story: {
-      title: "The Dream Cloud",
-      person: "Marcus, 34",
-      memory: "I used to dream in color every night. Vivid, impossible worlds. Then the accident happened, and the medication stopped the dreams entirely. For three years, sleep was just darkness. Last month, I dreamed again—a purple nebula where my brother and I were kids, floating through space, laughing. I woke up crying, but I was grateful.",
-      emotion: "The fragile beauty of memory returning after years of numbness.",
-      imagePrompt: "A swirling purple and pink nebula cloud in deep space, soft ethereal light, dreamy and emotional atmosphere, cosmic dust and stars, deep field space photography"
+      title: "The Witness Moon",
+      person: "Iby Knill",
+      memory: `My name is Iby Knill. I was born in 1923 and grew up in an educated, cultured family. My brother Tomy and I spoke several languages, and religion played little part in my childhood. I even attended a German grammar school, where I flourished academically and socially.
+
+When the pro-Nazi Slovak puppet regime introduced a version of the Nuremberg Laws in 1939, I was forced to transfer to a Jewish school.
+
+After the German occupation of Czechoslovakia in late 1938, my life became increasingly restricted. Jewish people were no longer allowed to use public transport, and I hated wearing the yellow star, often covering it with a scarf on my way to school. My parents' business was "Aryanised," and we were forced out of our apartment when it was given to a German family. We were moved into a small flat on the outskirts of town.
+
+At the end of January 1942, my mother was warned by a friend that young women were being rounded up by German authorities. I hid for several days at my grandparents' house while my parents arranged for my escape. We cycled part of the way and we then walked, it was February 1942, and everything was frozen and cold, and then crawled across no-man's-land into Hungary. I crossed no-man's-land into Hungary in the middle of the night. I was 18 and considered an illegal immigrant. I went to my aunt Bella in Budapest, but she refused to help me out of fear of repercussions. I then hid in the apartment of my cousin Marton for several weeks.
+
+I later lived with a solicitor and his family. He was also part of the Hungarian resistance, and I agreed to help by using my knowledge of English to assist Allied airmen in escaping Hungary.
+
+Eventually, the resistance group was caught. I spent a fortnight at a police station and three months in prison before being released. I was immediately re-arrested as an illegal immigrant and sent to a refugee camp to work as a farm labourer. During my various internments, I also volunteered as a nurse wherever I could.
+
+In 1944, I was sent to Auschwitz-Birkenau. On arrival, I was shaved, showered, and given a prisoner uniform. My language skills meant I could communicate with German guards, which sometimes resulted in slightly better rations. However, I was not protected from suffering. I developed a hip condition and was sent to the camp hospital, where I was subjected to X-ray experiments.
+
+I only remained in Auschwitz for six weeks. I volunteered to join a slave labour transport to an armament factory in Lippstadt, Germany. There, I was forced to work on armaments for the German war effort, and where possible, I and others tried to sabotage production. Eventually, I was put in charge of the camp hospital due to my German fluency and informal nursing experience.
+
+In March 1945, the hospital unit was evacuated, and I was taken on a death march towards Bergen-Belsen. Anyone unable to keep up was shot. My hip infection returned, and I survived largely because friends carried me along the way. I was liberated by the American army on Easter Sunday 1945.
+
+My mother and brother both survived the war and returned to Bratislava. I spent time recovering in hospital and then worked as a translator and interpreter for the Allied Military Government in Germany. In September 1946, I returned to live with my mother and brother in Bratislava. However, my father had been killed in Auschwitz.
+
+While working for the British, I met Bert Knill, a British officer. We married in Bratislava in December 1946 and moved to England in March 1947. We raised two children, along with two stepsons from Bert's previous marriage.
+
+Over the years, I worked in civil defence training, education, and later as a language tutor, translator, and textile designer. In 1973, I earned my BA, and in 2002, at the age of 79, I completed my MA. I also wrote two autobiographies about my experiences, The Woman Without a Number (2010) and The Woman with Nine Lives (2016).
+
+I often spoke to young people about my experiences and what I believed they should learn from them: to teach young people to accept differences, to understand them and to honour them, and unless young people learn that, there is really no future for civilisation because genocide in one shape or another will take place.
+
+In recognition of my work in Holocaust education and interfaith understanding, I was awarded the British Empire Medal in the Queen's Birthday Honours List in 2017. I also received an honorary doctorate from the University of Huddersfield in 2016 and an Honorary Fellowship from Leeds Trinity University in 2018.
+
+I died in 2022, aged 99.`,
+      emotion: "Witness as moonlight: a life carrying memory through darkness so others can see.",
+      imagePrompt: "A pale moon over a dark European night sky, faint yellow star transformed into moonlight, solemn and dignified, historical memory, cinematic celestial portrait"
     }
   },
   {
-    id: "planet-1",
-    name: "Blue Planet",
-    icon: <Circle className="w-14 h-14" />,
-    position: { x: "45%", y: "55%" },
+    id: "planet-emma-gatewood",
+    name: "Trail Planet",
+    icon: <Orbit className="w-14 h-14" />,
+    position: { x: "66%", y: "72%" },
     size: "w-14 h-14",
     color: "#3a60a0",
-    label: "The Home World",
+    label: "The Trail Planet",
     story: {
-      title: "The Home World",
-      person: "Amara, 31",
-      memory: "I left my country when I was nineteen. I can never go back. Sometimes I close my eyes and try to remember the exact shade of blue in the sky, the smell of rain on the street where I grew up, my mother's voice saying my name. The memories feel like a planet I used to live on—still out there, still real, but impossibly far away.",
-      emotion: "The astronaut's paradox: homesick for a place you can see but never touch again.",
-      imagePrompt: "A distant blue planet viewed from space, soft atmospheric glow, stars in background, lonely and beautiful, sense of longing and distance, cinematic space photography"
-    }
-  },
-  {
-    id: "comet-1",
-    name: "Comet",
-    icon: <Zap className="w-10 h-10" />,
-    position: { x: "80%", y: "60%" },
-    size: "w-10 h-10",
-    color: "#88a5e0",
-    label: "The Passing Light",
-    story: {
-      title: "The Passing Light",
-      person: "Sarah, 28",
-      memory: "My father and I saw Hale-Bopp together when I was a baby. He took photos. He'd show them to me every year on my birthday and say, 'You won't see it again in your lifetime, but we saw it together.' He died last year. The comet won't return until 2061. I'll be seventy-three. I hope I make it. I want to look up and remember him.",
-      emotion: "The strange comfort of celestial time—grief measured in orbits and returns.",
-      imagePrompt: "A bright comet with glowing tail streaking across a starfield, sense of motion and fleeting beauty, nostalgic and bittersweet mood, long exposure astrophotography"
-    }
-  },
-  {
-    id: "constellation-1",
-    name: "Constellation",
-    icon: <Stars className="w-12 h-12" />,
-    position: { x: "25%", y: "65%" },
-    size: "w-12 h-12",
-    color: "#c8ddf5",
-    label: "The Connected Points",
-    story: {
-      title: "The Connected Points",
-      person: "Jin, 52",
-      memory: "My daughter was born the same night my mother died. Different hospitals, three miles apart. I drove between them all night—saying goodbye, saying hello. When I finally stepped outside at dawn, I saw Orion setting in the west. I realized: we're all just points of light, and love is the line we draw between them. The pattern stays even when the stars go dark.",
-      emotion: "The constellation of family: separate lights, impossible distances, one shape.",
-      imagePrompt: "A constellation pattern in the night sky with glowing connecting lines, stars of different brightness, sense of meaning and connection, contemplative and spiritual atmosphere, deep space astrophotography"
-    }
-  },
-  {
-    id: "galaxy-1",
-    name: "Spiral Galaxy",
-    icon: <Orbit className="w-14 h-14" />,
-    position: { x: "55%", y: "25%" },
-    size: "w-14 h-14",
-    color: "#88a5e0",
-    label: "The Spiral",
-    story: {
-      title: "The Spiral",
-      person: "David, 45",
-      memory: "I've been falling in and out of the same patterns my whole life. Therapy helped me see it—the spiral. I'm not going in circles. I'm moving through the same emotional territory, but each time I'm at a different height. The view changes. Last week my daughter made the same mistake I made at her age. I didn't get angry. I understood. The spiral had brought me somewhere new.",
-      emotion: "The grace of recognizing your own patterns from a wiser altitude.",
-      imagePrompt: "A beautiful spiral galaxy with glowing arms and bright core, cosmic dust and young stars, sense of cycles and growth, philosophical and contemplative mood, hubble deep field photography"
-    }
-  },
-  {
-    id: "black-hole-1",
-    name: "Black Hole",
-    icon: <Circle className="w-10 h-10" />,
-    position: { x: "40%", y: "75%" },
-    size: "w-10 h-10",
-    color: "#0b1838",
-    label: "The Absence",
-    story: {
-      title: "The Absence",
-      person: "Thomas, 67",
-      memory: "Grief is a black hole. After my wife died, I felt it pulling everything into itself—color, sound, meaning. For months, I was just orbiting the edge. But here's what they don't tell you about black holes: the gravity is so strong because the love was so dense. The absence is shaped exactly like what was there. Now when I feel the pull, I know what I'm feeling. I'm feeling the shape of her.",
-      emotion: "The physics of loss: absence as evidence, gravity as measurement of what mattered.",
-      imagePrompt: "A black hole with accretion disk and gravitational lensing effect, stars being pulled toward darkness, beautiful and terrifying, sense of absence and presence, scientific visualization with emotional depth"
-    }
-  },
-  {
-    id: "moon-1",
-    name: "Crescent Moon",
-    icon: <Moon className="w-12 h-12" />,
-    position: { x: "10%", y: "45%" },
-    size: "w-12 h-12",
-    color: "#c8ddf5",
-    label: "The Phases",
-    story: {
-      title: "The Phases",
-      person: "Lucia, 41",
-      memory: "I track my moods with the moon. My therapist thinks I'm being poetic, but I'm serious. Full moon weeks, I'm bright and productive and can't sleep. New moon weeks, I'm quiet, internal, resting. I used to fight it. Now I plan around it. I'm not broken. I'm just lunar. Some of us run on different cycles.",
-      emotion: "The relief of accepting your own rhythms instead of forcing linear progress.",
-      imagePrompt: "A glowing crescent moon in deep space with soft light illuminating cosmic dust, peaceful and introspective atmosphere, phases of the moon visible in sequence, celestial and meditative mood, space photography"
+      title: "The Trail Planet",
+      person: "Emma Gatewood",
+      memory: `My name is Emma Gatewood, otherwise known as Grandma Gatewood. In 1955, I told my children that I was "going for a hike in the woods." In reality, I set out to walk the entire 2,190-mile Appalachian Trail, the longest hiking-only footpath in the world. I was 67 years old at the time, a mother of 11, a grandmother of 23, and a survivor of more than 30 years of domestic abuse. On September 25, 1955, when I reached Katahdin, I became the first woman to complete the Appalachian Trail alone in a single season.
+
+I was born on October 25, 1887, on a farm in Gallia County, Ohio. I grew up in a difficult household. My father, Hugh Caldwell, a Civil War veteran who had lost a leg in the war, drank heavily and gambled. As a child, I was often responsible for hard manual work on the farm, and I shared a small log cabin with my 14 siblings. We slept in just four beds.
+
+When I was 19, I married Perry Clayton Gatewood, a 26-year-old farmer. After our marriage, I worked building fences and mixing cement. For more than 30 years, I also endured physical abuse in that marriage.
+
+Despite media attention after my Appalachian Trail hike in 1955, the full story of that abuse was not widely known until much later, when journalist Ben Montgomery published Grandma Gatewood's Walk in 2014. He is my great-great-grandnephew and spoke with my surviving children, who shared letters and journals describing my experiences.
+
+I married Perry just three months before he first drew blood. The abuse continued for decades. At times, I was nearly killed. On one occasion, he broke a broom over my head. In 1939, after a particularly violent attack in which he broke my teeth and cracked a rib, I threw a sack of flour at him. When authorities arrived, I was arrested instead of him. I spent a night in jail until the mayor, seeing my condition, brought me to his home for protection. In 1940, after 33 years of marriage, I obtained a divorce, something rare for women at the time. I raised my remaining three children on my own.
+
+In the 1950s, after my children had grown and left home, I read a National Geographic article about Earl Shaffer, the first person to thru-hike the Appalachian Trail. The idea that no woman had done it alone stood out to me. I had always found comfort in walking in the woods, often during my marriage. I decided to attempt the trail. As one of my daughters later said, I told her: "If those men can do it, I can do it."
+
+My first attempt in 1953 began in Maine, but it did not succeed. I broke my glasses, became lost, and was eventually helped off the trail by rangers who told me to go home. Two years later, I tried again, this time starting in Georgia to avoid the same route. In neither case did I tell my children where I was going. I only said I was going for a hike.
+
+When I set out on my successful attempt, I carried a homemade denim bag with very few items: a blanket, a shower curtain, a cup, a canteen, a small pot, a spoon, a Swiss Army knife, a first-aid kit, pins, a flashlight, rope, a raincoat, a warm coat, a change of clothes, and my Keds sneakers. I wore out seven pairs of Keds on the trail. I carried no sleeping bag, no tent, no compass, and no map. Instead, I relied on the kindness of people along the trail for food and shelter.
+
+As I walked, I often slept on porches, under picnic tables, or on beds of leaves. I ate simple foods like canned Vienna sausages, raisins, nuts, and what I could find along the way. I had learned which plants were safe to eat before the journey. I became known in some towns, and newspapers followed my progress. My children eventually learned I was on the trail through a newspaper clipping.
+
+The day before reaching Katahdin, I fell and broke my glasses again, the same thing that had happened during my first attempt. I also bruised my face and sprained my ankle. Despite this, I continued. After 146 days of hiking, I reached the summit of Katahdin on September 25, 1955. I sang "America the Beautiful" at the top.
+
+I had averaged about 14 miles a day, often walking from sunrise until I could go no further. Some Boy Scouts and their leaders reported that they could not keep pace with me.
+
+Two years later, I returned and hiked the entire Appalachian Trail again, becoming the first person to complete it twice. In 1964, I hiked it once more, this time in sections.
+
+My journey helped open the Appalachian Trail to more women and older hikers. Over time, more women began attempting and completing the trail. When asked why I hiked it, my answer was simple: "Because I wanted to."`,
+      emotion: "Endurance as orbit: each step making a new path possible for the people who follow.",
+      imagePrompt: "A blue-green planet wrapped by a glowing mountain trail like an orbital ring, Appalachian ridgelines, dawn light, sturdy and triumphant mood"
     }
   }
 ];
@@ -398,7 +432,7 @@ export function MuseumRoom() {
                        boxShadow: `0 0 20px ${obj.color}40`
                      }}>
                   <span className="text-[#c8ddf5] tracking-wide" style={{ fontSize: '0.75rem' }}>
-                    {obj.label}
+                    {obj.story.person}
                   </span>
                 </div>
               </motion.div>
