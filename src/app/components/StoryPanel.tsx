@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { X, ArrowRight, Image as ImageIcon, Loader2, Pause, Play, Volume2 } from "lucide-react";
+import { X, ArrowRight, Image as ImageIcon, Loader2, Pause, Play, Trash2, Volume2 } from "lucide-react";
 
 interface Story {
   title: string;
@@ -13,12 +13,13 @@ interface Story {
 interface StoryPanelProps {
   story: Story;
   onClose: () => void;
+  onDelete?: () => void;
 }
 
 type NarrationStatus = "idle" | "loading" | "ready" | "playing" | "error";
 type ImageStatus = "idle" | "loading" | "ready" | "error";
 
-export function StoryPanel({ story, onClose }: StoryPanelProps) {
+export function StoryPanel({ story, onClose, onDelete }: StoryPanelProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [status, setStatus] = useState<NarrationStatus>("idle");
@@ -170,6 +171,24 @@ export function StoryPanel({ story, onClose }: StoryPanelProps) {
           boxShadow: '0 0 60px rgba(136, 165, 224, 0.3), inset 0 0 80px rgba(58, 96, 160, 0.1)'
         }}
       >
+        {/* Delete button (only for user-created stories) */}
+        {onDelete && (
+          <button
+            onClick={() => {
+              if (window.confirm(`Delete "${story.title}"? This cannot be undone.`)) {
+                onDelete();
+              }
+            }}
+            aria-label="Delete this story"
+            className="absolute top-4 right-16 z-10 p-2 rounded-full bg-[#0b1838]/90 border border-[#f6b8b8]/40 hover:bg-[#3a1a1a] hover:border-[#f6b8b8]/70 transition-all"
+            style={{
+              boxShadow: '0 0 12px rgba(246, 184, 184, 0.25)'
+            }}
+          >
+            <Trash2 className="w-5 h-5 text-[#f6b8b8]" />
+          </button>
+        )}
+
         {/* Close button */}
         <button
           onClick={onClose}

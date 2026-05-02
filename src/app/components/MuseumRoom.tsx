@@ -1,8 +1,10 @@
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Star, Sparkles, Moon, Orbit, Zap, Stars, Circle, Plus } from "lucide-react";
 import { StoryPanel } from "./StoryPanel";
 import { CreateStoryForm, NewStory, CosmicObjectType } from "./CreateStoryForm";
+
+const USER_STORIES_STORAGE_KEY = "cosmic-stories:user-stories:v1";
 
 interface CosmicObject {
   id: string;
@@ -12,6 +14,7 @@ interface CosmicObject {
   label: string;
   size: string;
   color: string;
+  cosmicType?: CosmicObjectType;
   story: {
     title: string;
     person: string;
@@ -19,6 +22,15 @@ interface CosmicObject {
     emotion: string;
     imagePrompt: string;
   };
+}
+
+interface StoredUserStory {
+  id: string;
+  cosmicType: CosmicObjectType;
+  position: { x: string; y: string };
+  label: string;
+  name: string;
+  story: CosmicObject["story"];
 }
 
 const cosmicObjects: CosmicObject[] = [
@@ -228,11 +240,59 @@ const generateRandomPosition = (existingPositions: { x: string; y: string }[]): 
   return { x: `${Math.random() * 70 + 15}%`, y: `${Math.random() * 60 + 20}%` };
 };
 
+function rehydrateUserStory(stored: StoredUserStory): CosmicObject {
+  const props = getCosmicProperties(stored.cosmicType);
+  return {
+    id: stored.id,
+    name: stored.name,
+    icon: props.icon,
+    position: stored.position,
+    label: stored.label,
+    size: props.size,
+    color: props.color,
+    cosmicType: stored.cosmicType,
+    story: stored.story,
+  };
+}
+
+function dehydrateUserStory(obj: CosmicObject): StoredUserStory | null {
+  if (!obj.cosmicType) return null;
+  return {
+    id: obj.id,
+    cosmicType: obj.cosmicType,
+    position: obj.position,
+    label: obj.label,
+    name: obj.name,
+    story: obj.story,
+  };
+}
+
+function loadStoredUserStories(): CosmicObject[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(USER_STORIES_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as StoredUserStory[];
+    if (!Array.isArray(parsed)) return [];
+    return parsed.map(rehydrateUserStory);
+  } catch {
+    return [];
+  }
+}
+
 export function MuseumRoom() {
   const [selectedObject, setSelectedObject] = useState<CosmicObject | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [userStories, setUserStories] = useState<CosmicObject[]>([]);
+  const [userStories, setUserStories] = useState<CosmicObject[]>(loadStoredUserStories);
   const [showCreateForm, setShowCreateForm] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const dehydrated = userStories
+      .map(dehydrateUserStory)
+      .filter((entry): entry is StoredUserStory => entry !== null);
+    window.localStorage.setItem(USER_STORIES_STORAGE_KEY, JSON.stringify(dehydrated));
+  }, [userStories]);
 
   const handleCreateStory = (newStory: NewStory) => {
     const existingPositions = [...cosmicObjects, ...userStories].map(obj => obj.position);
@@ -247,6 +307,7 @@ export function MuseumRoom() {
       label: newStory.storyTitle,
       size: cosmicProps.size,
       color: cosmicProps.color,
+      cosmicType: newStory.cosmicObjectType,
       story: {
         title: newStory.storyTitle,
         person: newStory.personName,
@@ -330,7 +391,7 @@ export function MuseumRoom() {
           fontFamily: 'Georgia, serif',
           textShadow: '0 0 20px rgba(200, 221, 245, 0.5), 0 0 40px rgba(136, 165, 224, 0.3)'
         }}>
-          COSMIC STORIES
+          COSMIC CONNECTIONS
         </h1>
         <p className="text-[#88a5e0]/80 text-center mt-2 tracking-widest" style={{ fontSize: '0.75rem' }}>
           Click the cosmic objects to explore memory galaxies
@@ -446,6 +507,14 @@ export function MuseumRoom() {
         <StoryPanel
           story={selectedObject.story}
           onClose={() => setSelectedObject(null)}
+          onDelete={
+            selectedObject.cosmicType
+              ? () => {
+                  setUserStories(userStories.filter(s => s.id !== selectedObject.id));
+                  setSelectedObject(null);
+                }
+              : undefined
+          }
         />
       )}
 
