@@ -7,7 +7,8 @@ import react from '@vitejs/plugin-react'
 
 const DEFAULT_OPENAI_TTS_MODEL = 'gpt-4o-mini-tts'
 const DEFAULT_OPENAI_TTS_VOICE = 'coral'
-const DEFAULT_OPENAI_IMAGE_MODEL = 'gpt-image-1.5'
+const DEFAULT_OPENAI_IMAGE_MODEL = 'gpt-image-1'
+const DEFAULT_OPENAI_IMAGE_PROMPT_MODEL = 'gpt-4.1-mini'
 const GENERATED_PUBLIC_DIR = path.resolve(__dirname, 'public/generated')
 
 function cacheKey(payload: unknown) {
@@ -39,11 +40,11 @@ async function writeGeneratedFile(filePath: string, data: Buffer | string) {
   await fs.writeFile(filePath, data)
 }
 
-function readJsonBody(req) {
+function readJsonBody(req: any) {
   return new Promise((resolve, reject) => {
     const chunks: Buffer[] = []
 
-    req.on('data', (chunk) => chunks.push(Buffer.from(chunk)))
+    req.on('data', (chunk: Buffer | string) => chunks.push(Buffer.from(chunk)))
     req.on('error', reject)
     req.on('end', () => {
       try {
@@ -70,7 +71,7 @@ async function readApiError(response: Response, fallback: string) {
 function figmaAssetResolver() {
   return {
     name: 'figma-asset-resolver',
-    resolveId(id) {
+    resolveId(id: string) {
       if (id.startsWith('figma:asset/')) {
         const filename = id.replace('figma:asset/', '')
         return path.resolve(__dirname, 'src/assets', filename)
@@ -94,8 +95,8 @@ interface OpenAiImageApiOptions {
 function openAiTtsApi({ apiKey, model, voice }: OpenAiTtsApiOptions) {
   return {
     name: 'openai-tts-api',
-    configureServer(server) {
-      server.middlewares.use('/api/openai-tts', async (req, res, next) => {
+    configureServer(server: any) {
+      server.middlewares.use('/api/openai-tts', async (req: any, res: any, next: () => void) => {
         if (req.method !== 'POST') {
           next()
           return
@@ -241,8 +242,8 @@ async function createOpenAiImagePrompt({
 
   const data = await promptResponse.json()
   const outputText = data.output_text
-    || data.output?.flatMap((item) => item.content || [])
-      .map((content) => content.text)
+    || data.output?.flatMap((item: any) => item.content || [])
+      .map((content: any) => content.text)
       .filter(Boolean)
       .join('\n')
 
@@ -256,8 +257,8 @@ async function createOpenAiImagePrompt({
 function openAiImageApi({ apiKey, model, promptModel }: OpenAiImageApiOptions) {
   return {
     name: 'openai-image-api',
-    configureServer(server) {
-      server.middlewares.use('/api/openai-image', async (req, res, next) => {
+    configureServer(server: any) {
+      server.middlewares.use('/api/openai-image', async (req: any, res: any, next: () => void) => {
         if (req.method !== 'POST') {
           next()
           return
@@ -390,7 +391,7 @@ export default defineConfig(({ mode }) => {
       openAiImageApi({
         apiKey: env.OPENAI_API_KEY,
         model: env.OPENAI_IMAGE_MODEL || DEFAULT_OPENAI_IMAGE_MODEL,
-        promptModel: env.OPENAI_IMAGE_PROMPT_MODEL || 'gpt-4.1-mini',
+        promptModel: env.OPENAI_IMAGE_PROMPT_MODEL || DEFAULT_OPENAI_IMAGE_PROMPT_MODEL,
       }),
       // The React and Tailwind plugins are both required for Make, even if
       // Tailwind is not being actively used – do not remove them

@@ -16,4 +16,3 @@
   OpenAI is used for text-to-speech, image prompt writing, and generated story images.
 
   Run `npm run dev` to start the development server.
-  

@@ -26,7 +26,6 @@ export function StoryPanel({ story, onClose }: StoryPanelProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [imageStatus, setImageStatus] = useState<ImageStatus>("idle");
   const [imageErrorMessage, setImageErrorMessage] = useState("");
-  const [generatedImagePrompt, setGeneratedImagePrompt] = useState("");
 
   const narrationText = useMemo(() => {
     return [
@@ -58,7 +57,6 @@ export function StoryPanel({ story, onClose }: StoryPanelProps) {
     setImageUrl(null);
     setImageStatus("idle");
     setImageErrorMessage("");
-    setGeneratedImagePrompt("");
   }, [story]);
 
   const handleNarrationToggle = async () => {
@@ -147,7 +145,6 @@ export function StoryPanel({ story, onClose }: StoryPanelProps) {
       }
 
       setImageUrl(nextImageUrl);
-      setGeneratedImagePrompt(data.prompt || "");
       setImageStatus("ready");
     } catch (error) {
       setImageStatus("error");
@@ -333,11 +330,6 @@ export function StoryPanel({ story, onClose }: StoryPanelProps) {
                   {imageStatus === "loading" ? "Creating..." : "Regenerate"}
                 </span>
               </button>
-            )}
-            {generatedImagePrompt && (
-              <p className="absolute bottom-4 left-4 max-w-[70%] rounded bg-[#0b1838]/85 px-3 py-2 text-[#88a5e0]/80 backdrop-blur-sm" style={{ fontSize: '0.72rem', lineHeight: '1.4' }}>
-                Prompt: {generatedImagePrompt}
-              </p>
             )}
             {/* Decorative corners */}
             <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-[#88a5e0]/50" />
